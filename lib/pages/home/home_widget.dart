@@ -72,370 +72,264 @@ class _HomeWidgetState extends State<HomeWidget> {
         ),
         body: SafeArea(
           top: true,
-          child: SingleChildScrollView(
-            primary: false,
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Column(
+          child: ListView(
+            children: [
+              // أول قسم
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 6.0),
+                child: Row(
                   mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    ListView(
-                      padding: EdgeInsets.zero,
-                      shrinkWrap: true,
-                      scrollDirection: Axis.vertical,
+                    Text(
+                      FFLocalizations.of(context).getText('ptznnxj0' /* HOME */),
+                      style: FlutterFlowTheme.of(context).labelLarge.override(
+                        fontFamily: 'NellyFont',
+                        fontSize: 16.0,
+                        letterSpacing: 0.0,
+                        fontWeight: FontWeight.w500,
+                        useGoogleFonts: false,
+                      ),
+                    ),
+                    Icon(
+                      Icons.home_rounded,
+                      color: FlutterFlowTheme.of(context).secondaryText,
+                      size: 20.0,
+                    ),
+                  ],
+                ),
+              ),
+
+              // ثاني قسم - Nelly
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
+                child: Column(
+                  children: [
+                    InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        context.pushNamed('Nelly');
+                      },
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(16.0),
+                        child: Image.asset(
+                          'assets/images/Nelly-logo.png',
+                          width: double.infinity,
+                          height: 230.0,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              12.0, 12.0, 12.0, 6.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                FFLocalizations.of(context).getText(
-                                  'ptznnxj0' /* HOME */,
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .labelLarge
-                                    .override(
-                                      fontFamily: 'NellyFont',
-                                      fontSize: 16.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w500,
-                                      useGoogleFonts: false,
-                                    ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              FFLocalizations.of(context).getText('xbio5sl1' /* Nelly Kids Fashion */),
+                              style: FlutterFlowTheme.of(context).titleLarge.override(
+                                fontFamily: 'NellyFont',
+                                letterSpacing: 0.0,
+                                useGoogleFonts: false,
                               ),
-                              Icon(
-                                Icons.home_rounded,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 20.0,
+                            ),
+                            Text(
+                              FFLocalizations.of(context).getText('9woaaqke' /* Baby and Children's Clothing E... */),
+                              style: FlutterFlowTheme.of(context).titleLarge.override(
+                                fontFamily: 'NellyFont',
+                                color: FlutterFlowTheme.of(context).secondaryText,
+                                fontSize: 12.0,
+                                letterSpacing: 0.0,
+                                useGoogleFonts: false,
                               ),
-                            ],
+                            ),
+                          ],
+                        ),
+                        FFButtonWidget(
+                          onPressed: () async {
+                            context.pushNamed('Nelly');
+                          },
+                          text: FFLocalizations.of(context).getText('f4nb5x3b' /* View */),
+                          options: FFButtonOptions(
+                            height: 40.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.zero,
+                            color: FlutterFlowTheme.of(context).secondaryText,
+                            textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                              fontFamily: 'NellyFont',
+                              color: Colors.white,
+                              letterSpacing: 0.0,
+                              useGoogleFonts: false,
+                            ),
+                            elevation: 0.0,
+                            borderRadius: BorderRadius.circular(10.0),
                           ),
                         ),
                       ],
                     ),
                   ],
                 ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            12.0, 12.0, 12.0, 12.0),
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            context.pushNamed('Nelly');
-                          },
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(16.0),
-                            child: Image.asset(
-                              'assets/images/Nelly-logo.png',
-                              width: double.infinity,
-                              height: 230.0,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
+              ),
+
+              // ثالث قسم - Nilly
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
+                child: Column(
+                  children: [
+                    InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        context.pushNamed('Nilly');
+                      },
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(16.0),
+                        child: Image.asset(
+                          'assets/images/Nilly-logo.png',
+                          width: double.infinity,
+                          height: 230.0,
+                          fit: BoxFit.cover,
                         ),
                       ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            12.0, 0.0, 12.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    'xbio5sl1' /* Nelly Kids Fashion */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleLarge
-                                      .override(
-                                        fontFamily: 'NellyFont',
-                                        letterSpacing: 0.0,
-                                        useGoogleFonts: false,
-                                      ),
-                                ),
-                                Expanded(
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      '9woaaqke' /* Baby and Children's Clothing E... */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .titleLarge
-                                        .override(
-                                          fontFamily: 'NellyFont',
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          fontSize: 12.0,
-                                          letterSpacing: 0.0,
-                                          useGoogleFonts: false,
-                                        ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            FFButtonWidget(
-                              onPressed: () async {
-                                context.pushNamed('Nelly');
-                              },
-                              text: FFLocalizations.of(context).getText(
-                                'f4nb5x3b' /* View */,
+                            Text(
+                              FFLocalizations.of(context).getText('8esi4lfs' /* Nilly Fabricato */),
+                              style: FlutterFlowTheme.of(context).titleLarge.override(
+                                fontFamily: 'NellyFont',
+                                letterSpacing: 0.0,
+                                useGoogleFonts: false,
                               ),
-                              options: FFButtonOptions(
-                                height: 40.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 16.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      fontFamily: 'NellyFont',
-                                      color: Colors.white,
-                                      letterSpacing: 0.0,
-                                      useGoogleFonts: false,
-                                    ),
-                                elevation: 0.0,
-                                borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            Text(
+                              FFLocalizations.of(context).getText('ggul5148' /* Fabric, Yarn, Textile Accessor... */),
+                              style: FlutterFlowTheme.of(context).titleLarge.override(
+                                fontFamily: 'NellyFont',
+                                color: FlutterFlowTheme.of(context).secondaryText,
+                                fontSize: 12.0,
+                                letterSpacing: 0.0,
+                                useGoogleFonts: false,
                               ),
                             ),
                           ],
                         ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            12.0, 12.0, 12.0, 12.0),
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
+                        FFButtonWidget(
+                          onPressed: () async {
                             context.pushNamed('Nilly');
                           },
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(16.0),
-                            child: Image.asset(
-                              'assets/images/Nilly-logo.png',
-                              width: double.infinity,
-                              height: 230.0,
-                              fit: BoxFit.cover,
+                          text: FFLocalizations.of(context).getText('qen7zumq' /* View */),
+                          options: FFButtonOptions(
+                            height: 40.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.zero,
+                            color: FlutterFlowTheme.of(context).secondaryText,
+                            textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                              fontFamily: 'NellyFont',
+                              color: Colors.white,
+                              letterSpacing: 0.0,
+                              useGoogleFonts: false,
                             ),
+                            elevation: 0.0,
+                            borderRadius: BorderRadius.circular(10.0),
                           ),
                         ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+
+              // رابع قسم - Moda
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 200.0),
+                child: Column(
+                  children: [
+                    InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        context.pushNamed('Moda');
+                      },
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(16.0),
+                        child: Image.asset(
+                          'assets/images/Moda-logo.png',
+                          width: double.infinity,
+                          height: 230.0,
+                          fit: BoxFit.cover,
+                        ),
                       ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            12.0, 0.0, 12.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    '8esi4lfs' /* Nilly Fabricato */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleLarge
-                                      .override(
-                                        fontFamily: 'NellyFont',
-                                        letterSpacing: 0.0,
-                                        useGoogleFonts: false,
-                                      ),
-                                ),
-                                Expanded(
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'ggul5148' /* Fabric, Yarn, Textile Accessor... */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .titleLarge
-                                        .override(
-                                          fontFamily: 'NellyFont',
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          fontSize: 12.0,
-                                          letterSpacing: 0.0,
-                                          useGoogleFonts: false,
-                                        ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            FFButtonWidget(
-                              onPressed: () async {
-                                context.pushNamed('Nilly');
-                              },
-                              text: FFLocalizations.of(context).getText(
-                                'qen7zumq' /* View */,
+                            Text(
+                              FFLocalizations.of(context).getText('a34x7om4' /* Moda Kids */),
+                              style: FlutterFlowTheme.of(context).titleLarge.override(
+                                fontFamily: 'NellyFont',
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w500,
+                                useGoogleFonts: false,
                               ),
-                              options: FFButtonOptions(
-                                height: 40.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 16.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      fontFamily: 'NellyFont',
-                                      color: Colors.white,
-                                      letterSpacing: 0.0,
-                                      useGoogleFonts: false,
-                                    ),
-                                elevation: 0.0,
-                                borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            Text(
+                              FFLocalizations.of(context).getText('1cooh9d5' /* Moda Kids Fair for Eid */),
+                              style: FlutterFlowTheme.of(context).titleLarge.override(
+                                fontFamily: 'NellyFont',
+                                color: FlutterFlowTheme.of(context).secondaryText,
+                                fontSize: 12.0,
+                                letterSpacing: 0.0,
+                                useGoogleFonts: false,
                               ),
                             ),
                           ],
                         ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 200.0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            12.0, 12.0, 12.0, 12.0),
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
+                        FFButtonWidget(
+                          onPressed: () async {
                             context.pushNamed('Moda');
                           },
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(16.0),
-                            child: Image.asset(
-                              'assets/images/Moda-logo.png',
-                              width: double.infinity,
-                              height: 230.0,
-                              fit: BoxFit.cover,
+                          text: FFLocalizations.of(context).getText('mc2g6x5n' /* View */),
+                          options: FFButtonOptions(
+                            height: 40.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.zero,
+                            color: FlutterFlowTheme.of(context).secondaryText,
+                            textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                              fontFamily: 'NellyFont',
+                              color: Colors.white,
+                              letterSpacing: 0.0,
+                              useGoogleFonts: false,
                             ),
+                            elevation: 0.0,
+                            borderRadius: BorderRadius.circular(10.0),
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            12.0, 0.0, 12.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    'a34x7om4' /* Moda Kids */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleLarge
-                                      .override(
-                                        fontFamily: 'NellyFont',
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                        useGoogleFonts: false,
-                                      ),
-                                ),
-                                Expanded(
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      '1cooh9d5' /* Moda Kids Fair for Eid */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .titleLarge
-                                        .override(
-                                          fontFamily: 'NellyFont',
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          fontSize: 12.0,
-                                          letterSpacing: 0.0,
-                                          useGoogleFonts: false,
-                                        ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            FFButtonWidget(
-                              onPressed: () async {
-                                context.pushNamed('Moda');
-                              },
-                              text: FFLocalizations.of(context).getText(
-                                'mc2g6x5n' /* View */,
-                              ),
-                              options: FFButtonOptions(
-                                height: 40.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 16.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      fontFamily: 'NellyFont',
-                                      color: Colors.white,
-                                      letterSpacing: 0.0,
-                                      useGoogleFonts: false,
-                                    ),
-                                elevation: 0.0,
-                                borderRadius: BorderRadius.circular(10.0),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
+                      ],
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
     );
   }
 }
+
