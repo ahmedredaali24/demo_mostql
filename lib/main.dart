@@ -9,7 +9,6 @@ import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
-import 'flutter_flow/nav/nav.dart';
 import 'index.dart';
 
 void main() async {
