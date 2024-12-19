@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "103315075742",
+    "project_id": "plateau-ipx6hs",
+    "storage_bucket": "plateau-ipx6hs.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:103315075742:android:ea46e4d0445aff3044018f",
+        "android_client_info": {
+          "package_name": "com.nellykidsfashion.plateau"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiekWhUvb6zET57YAReN71a8doSZUP8h4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
