@@ -1,6 +1,7 @@
+import 'package:cloud_functions/cloud_functions.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
 import 'backend/firebase/firebase_config.dart';
@@ -12,12 +13,18 @@ import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.da
 import 'flutter_flow/nav/nav.dart';
 import 'index.dart';
 
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  // معالجة الإشعارات في الخلفية
+  print("رسالة واردة في الخلفية: ${message.messageId}");
+}
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   GoRouter.optionURLReflectsImperativeAPIs = true;
   usePathUrlStrategy();
 
   await initFirebase();
+  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
   runApp(MyApp());
 }
@@ -33,6 +40,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   Locale? _locale;
+  late FirebaseMessaging messaging;
 
   ThemeMode _themeMode = ThemeMode.system;
 
@@ -41,9 +49,61 @@ class _MyAppState extends State<MyApp> {
 
   bool displaySplashImage = true;
 
+  Future<void> sendNotification(
+      {required String token,
+      required String title,
+      required String body}) async {
+    try {
+      final HttpsCallable callable =
+          FirebaseFunctions.instance.httpsCallable('sendNotification');
+      final response = await callable.call(<String, dynamic>{
+        'token': token,
+        'title': title,
+        'body': body,
+      });
+      print("Notification Sent: ${response.data}");
+    } catch (e) {
+      print("Error sending notification: $e");
+    }
+  }
+
+  void saveTokenToFirestore(String token) async {
+    await FirebaseFirestore.instance
+        .collection('users')
+        .doc('USER_ID') //
+        .set({'token': token}, SetOptions(merge: true));
+  }
+
   @override
   void initState() {
     super.initState();
+    messaging = FirebaseMessaging.instance;
+
+    messaging.requestPermission(
+      alert: true,
+      announcement: false,
+      badge: true,
+      carPlay: false,
+      criticalAlert: false,
+      provisional: false,
+      sound: true,
+    );
+
+    messaging.getToken().then((token) {
+      print("FCM Token: $token");
+      //  Firestore
+    });
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+      print("رسالة واردة: ${message.notification?.title}");
+    });
+    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
+      print("open notification: ${message.notification?.title}");
+    });
+    sendNotification(
+      token: "DEVICE_FCM_TOKEN",
+      title: "Hello!",
+      body: "This is a test notification.",
+    );
 
     _appStateNotifier = AppStateNotifier.instance;
     _router = createRouter(_appStateNotifier);
